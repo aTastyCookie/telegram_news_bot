@@ -1,0 +1,21 @@
+<div class="ctrl_videos_block page_block">
+    <div class="app_edit_block_header">
+        <div class="label clearfix">
+            <div class="pull-left">Список сводок</div>
+        </div>
+    </div>
+
+
+
+    <div class="ctrl_videos" style="padding: 0px 0">
+        <? list.forEach(function (o) { ?>
+        <div class="ctrl_video ctrl_video_open clearfix" data-id="">
+            <div class="pull-right text-muted"><?= o.status == 'draft' ? 'черновик' : 'опубликована' ?></div>
+
+            <div class="ctrl_video_name"><a href="/edit?id=<?= o._id ?>"><?= o.name ?></a></div>
+            <div class="ctrl_video_date text-muted"><?= o.date ?></div>
+        </div>
+        <? }) ?>
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="ctrl_videos_block page_block">
+    <div class="app_edit_block_header">
+        <div class="label clearfix">
+            <div class="pull-left">Список подписчиков и чатов</div>
+        </div>
+    </div>
+
+
+
+    <div class="ctrl_videos" style="padding: 0">
+        <? users.forEach(function (o) { ?>
+        <div class="ctrl_video ctrl_video_open clearfix" data-id="">
+            <div class="pull-right text-muted control-status">
+                <a href="javascript://" class="change_status" data-id="<?= o.id ?>"><?= o.status ? 'активен' : 'неактивен' ?></a></div>
+
+            <div class="ctrl_video_name1 pull-left"><span class="text-muted"><?= o.type == 'chat' ? 'Chat' : 'User' ?>:</span> <?= o.first_name + (o.last_name ? ' ' + o.last_name : '') ?></div>
+            <? if (o.username) { ?><a href="https://telegram.me/<?= o.username ? o.username : '' ?>" target="_blank" class="telegram-me pull-left">@<?= o.username ? o.username : '' ?></a><? } ?>
+        </div>
+        <? }) ?>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/control_head %>
+</head>
+<body>
+<% include ../partials/control_header %>
+
+<div class="wrap center-block">
+    <div id="dev_left_nav" class="pull-left">
+        <div class="dev_nav" style="top: 0px; margin-left: 0px; position: relative;">
+            <div id="dev_page_narrow">
+
+                <a id="dev_mlist_main" href="/control/video" class="nav">Видео</a>
+
+                <div id="dev_mlist_submenu_main" style="">
+                    <a href="/control/video?act=new" class="nav submenu">Присланные</a>
+                    <a href="/control/video?act=not_desc" class="nav submenu">Без описания</a>
+                    <a href="/control/video?act=last_approve" class="nav submenu">Последние проверенные</a>
+                    <a href="/control/video?act=last_edited" class="nav submenu">Последние измененные</a>
+                    <a href="/control/video?act=deleted" class="nav submenu">Удаленные</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="right_block" class="pull-right">
+        <%- include('../control/' + 'video' + '.ejs') -%>
+    </div>
+</div>
+
+<% include ../partials/control_footer %>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+<script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script src="/js/autosize.js"></script>
+
+
+<script>
+var video = {};
+(video.init = function () {
+    $('#dev_mlist_submenu_main a').each(function () {
+        if (location.href.split('/').slice(-1)[0] == $(this).attr('href').split('/').slice(-1)[0]) {
+            $(this).addClass('nav_selected');
+        }
+    });
+
+    $('.change_status').on('click', function () {
+        var t = $(this);
+        $.post('/change_status', {
+            id: t.attr('data-id'),
+            status: t.html() == 'активен' ? 'false' : 'true'
+        }, function () {
+            t.html(t.html() == 'активен' ? 'неактивен' : 'активен');
+        })
+    })
+})();
+
+$(document).ready(function () {
+    autosize($('textarea'));
+});
+
+</script>

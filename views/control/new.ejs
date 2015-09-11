@@ -1,0 +1,73 @@
+<div class="ctrl_videos_block page_block">
+    <div class="app_edit_block_header">
+        <div class="label clearfix">
+            <div class="pull-left">Добавить сводку</div>
+        </div>
+    </div>
+
+<style>
+    .bg-primary,
+    .bg-danger {
+        padding: 15px 30px;
+    }
+    .bg-primary:last-child,
+    .bg-danger:last-child {
+        margin-bottom: 50px;
+    }
+</style>
+
+    <div class="ctrl_videos" style="padding: 50px 0">
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <? if (locals.err) { locals.err.forEach(function (o) { ?>
+                <p class="bg-danger"><?= o ?></p>
+                <? })} ?>
+
+                <? if (locals.success) { ?>
+                <p class="bg-primary"><?= success == 'draft' ? 'Сводка сохранена как черновик' : 'Сводка опубликована и разослана подписчикам бота' ?></p>
+                <? } ?>
+
+                <? if (locals.success || locals.err ) { ?><div style="margin-bottom: 50px"></div><? } ?>
+                <form action="<?= locals.edit ? '/edit?id=' + locals.id : '/' ?>" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Название сводки</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="name" class="form-control" id="inputEmail3" value="<?= locals.body.name ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">Описание сводки</label>
+
+                        <div class="col-sm-6">
+                            <textarea class="form-control" name="desc" rows="8" style="font-size: 13px"><?= locals.body.desc ?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-6">
+                            <button type="submit" name="status" value="draft" class="btn btn-default">Сохранить как черновик</button>
+                            <button type="submit" name="status" value="sent" class="btn btn-default">Опубликовать и разослать</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!---->
+
+
+        <!--<div class="ctrl_video ctrl_video_open clearfix" data-id="">-->
+        <!--<div class="ctrl_video_img pull-left">-->
+        <!--<img src="https://i.ytimg.com/vi//default.jpg" width="80"/>-->
+        <!--</div>-->
+        <!--<a class="pull-right" href="/watch/" target="_blank">open</a>-->
+        <!--<div class="ctrl_video_name pull-left"</div>-->
+        <!--</div>-->
+        <!---->
+    </div>
+
+</div>

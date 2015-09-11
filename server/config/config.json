@@ -1,0 +1,11 @@
+{
+    "port": 8021,
+    "mongoose": {
+        "uri": "mongodb://localhost/bot-kgd",
+        "options": {}
+    },
+    "control": {
+        "user": "test",
+        "pass": "test"
+    }
+}

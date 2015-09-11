@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <? include ../partials/control_head ?>
+</head>
+<body>
+<? include ../partials/control_header ?>
+
+<div class="wrap center-block">
+    <div id="dev_left_nav" class="pull-left">
+        <div class="dev_nav" style="top: 0px; margin-left: 0px; position: relative;">
+            <div id="dev_page_narrow">
+
+                <a id="dev_mlist_main" href="/list" class="nav">Сводки</a>
+
+                <div id="dev_mlist_submenu_main" style="">
+                    <a href="/?act=new" class="nav submenu">Добавить</a>
+                    <a href="/list" class="nav submenu">Список</a>
+                    <a href="/check" class="nav submenu">Подписки</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="right_block" class="pull-right">
+        <?- include('../control/' + type + '.ejs') -?>
+    </div>
+</div>
+
+<? include ../partials/control_footer ?>
+</body>
+</html>

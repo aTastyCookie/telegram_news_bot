@@ -1,0 +1,57 @@
+<meta charset="UTF-8">
+
+<title><%if (name) { %><%= name %> / The Random Video<%}else{%>Самые лучшие, захватывающие и интересные видео со всего мира<% } %></title>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+
+<meta name="description" content="<%if (name) { %>Просмотр видео — <%= name  %>. <%}%>Просмотр самых лучших и интересных видео со всего мира в случайном порядке. Лучшее из YouTube!" />
+<meta name="keywords" content="захватывающие видео youtube, захватывающие видео ютуба, лучшие видео ютуба, интересные видео ютуба, самые лучшие видео ютуба, самые лучшие видео мира, зрелищные видео мира">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+<link href='/bower_components/bootstrap/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
+<link href='/bower_components/sweetalert/lib/sweet-alert.css' rel='stylesheet' type='text/css'>
+<link href='/bower_components/magnific-popup/dist/magnific-popup.css' rel='stylesheet' type='text/css'>
+
+<link href='/css/style.css?4' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<% if (video) { %>
+
+
+<meta name="twitter:description" content="<%if (name) { %>Просмотр видео — <%= name  %>. <%}%>Просмотр самых лучших и интересных видео со всего мира в случайном порядке. Лучшее из YouTube!"/>
+<meta name="twitter:title" content="<%= name  %> / The Random Video"/>
+<meta name="twitter:domain" content="The Random Video"/>
+<meta name="twitter:image:src" content="https://i.ytimg.com/vi/<%= video.split('/').slice(-1); %>/<%= videoImg %>.jpg"/>
+<meta name="twitter:url" content="http://therandomvideo.com/watch/<%= current_url %>/"/>
+
+
+<meta property="og:title" content="<%= name  %> / The Random Video" />
+<meta property="og:description" content="<%if (name) { %>Просмотр видео — <%= name  %>. <%}%>Просмотр самых лучших и интересных видео со всего мира в случайном порядке. Лучшее из YouTube!" />
+<meta property="og:url" content="http://therandomvideo.com/watch/<%= current_url %>/" />
+<meta property="og:site_name" content="The Random Video" />
+<meta property="og:image" content="https://i.ytimg.com/vi/<%= video.split('/').slice(-1); %>/<%= videoImg %>.jpg" />
+<link rel="image_src" href="https://i.ytimg.com/vi/<%= video.split('/').slice(-1); %>/<%= videoImg %>.jpg" />
+<% } else { %>
+
+<meta name="twitter:description" content="Просмотр самых лучших и интересных видео со всего мира в случайном порядке. Лучшее из YouTube!"/>
+<meta name="twitter:title" content="Самые лучшие, захватывающие и интересные видео со всего мира"/>
+<!--meta name="twitter:site" content="@ru_lh"/-->
+<meta name="twitter:domain" content="The Random Video"/>
+<!--meta name="twitter:creator" content="@ru_lh"/-->
+<meta name="twitter:image:src" content="http://therandomvideo.com/img/logo.png"/>
+<meta name="twitter:url" content="http://therandomvideo.com/"/>
+
+
+<meta property="og:title" content="Самые лучшие, захватывающие и интересные видео со всего мира" />
+<meta property="og:description" content="Просмотр самых лучших и интересных видео со всего мира в случайном порядке. Лучшее из YouTube!" />
+<meta property="og:url" content="http://therandomvideo.com/" />
+<meta property="og:site_name" content="The Random Video" />
+<meta property="og:image" content="http://therandomvideo.com/img/logo.png" />
+<link rel="image_src" href="http://therandomvideo.com/img/logo.png" />
+<% } %>
+<script>
+    window.f = function () {
+        console.log.apply(console, arguments)
+    }
+</script>

@@ -1,0 +1,184 @@
+
+<!--div id="social-popup" class="social-popup mfp-with-anim mfp-hide">
+    <div class="name">Поделись сайтом с друзьями</div>
+    <script type="text/javascript">if (location.hostname != 'localhost') {(function (w, doc) {
+            if (!w.__utlWdgt) {
+                w.__utlWdgt = true;
+                var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript';
+                s.charset = 'UTF-8';
+                s.async = true;
+                s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
+                var h = d[g]('body')[0];
+                h.appendChild(s);
+            }
+        })(window, document);}
+    </script>
+    <div class="social-desc">Вашим друзьям понравится у нас!</div>
+    <div data-share-size="40" data-like-text-enable="false" data-background-alpha="0.0" data-pid="1337013"
+         data-mode="share" data-background-color="#ffffff" data-hover-effect="rotate-cw" data-share-shape="round"
+         data-share-counter-size="14" data-icon-color="#ffffff" data-text-color="#000000" data-buttons-color="#ffffff"
+         data-counter-background-color="#ffffff" data-share-counter-type="common" data-orientation="horizontal"
+         data-following-enable="false" data-sn-ids="vk.fb.ok.tw.gp.sb.ps.ev.em." data-selection-enable="false"
+         data-exclude-show-more="true" data-url="http://therandomvideo.com/" data-share-style="1" data-counter-background-alpha="0.0" data-top-button="false"
+         class="uptolike-buttons"></div>
+
+    <div class="undo-link"><a href="javascript://" onclick="undoSocial();">Не показывать это окно</a></div>
+</div-->
+
+
+
+<div id="settings-popup" class="settings-popup mfp-with-anim mfp-hide">
+    <h3>Настройки сайта</h3>
+
+
+    <div class="set-item overflow">
+        <div class="switch-peer pull-right">
+            <div class="switch">
+                <input id="setting_autoplay" class="cmn-toggle cmn-toggle-round" <%= (cookies.setting_autoplay == 'true' ? 'checked' : '') %> type="checkbox">
+                <label for="setting_autoplay"></label>
+            </div>
+        </div>
+        <div class="name-set">Показывать в поиске</div>
+    </div>
+
+    <!--div class="set-item overflow">
+        <div class="switch-peer pull-right">
+            <div class="switch">
+                <input id="setting_autonext" class="cmn-toggle cmn-toggle-round" <%= cookies.setting_autonext == 'true' ? 'checked' : '' %> type="checkbox">
+                <label for="setting_autonext"></label>
+            </div>
+        </div>
+        <div class="name-set">Автопереключение видео</div>
+    </div-->
+</div>
+
+
+
+
+
+
+<script type="text/javascript">if (location.hostname != 'localhost') {(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter28100769 = new Ya.Metrika({id:28100769, webvisor:true, clickmap:true, trackLinks:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");}</script><noscript><div><img src="//mc.yandex.ru/watch/28100769" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/jquery-cookie/jquery.cookie.js"></script>
+<script src="/bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+<script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+
+<script src="/js/app.js"></script>
+
+<script>
+    /*
+     * Привет. Хочешь помучать разработчика? — telegram.me/highfeed
+     *
+     * Да, кстати, не забудь попробовать POST-запрос /api?method=video.delete :D
+     *
+     **/
+
+
+    $('#settings').on('click', function () {
+        $.magnificPopup.open({
+            callbacks: {
+                beforeOpen: function() {
+                    this.st.mainClass = 'mfp-newspaper';
+                },
+                close: function () {
+                    swal({
+                        title: 'Отлично!',
+                        text: 'Настройки успешно сохранены',
+                        timer: 1000,
+                        type: 'success'
+                    });
+                }
+            },
+            items: {
+                src: '#settings-popup',
+                type: 'inline'
+            }
+        });
+    });
+
+    $('.switch input[type="checkbox"]').on('change', function () {
+        $.cookie($(this).attr('id'), $(this).is(':checked'), {expires: 365, path: '/'});
+    });
+
+    $('#toggle-social').on('click', function () {
+        $('.block-toggle').toggle();
+    });
+
+    var uptolike = setInterval(function () {
+        if ($('.sn-icon').size()) {
+            clearInterval(uptolike);
+            $('.sn-icon').parent().on('click', function () {
+                $.cookie('last_uptolike', $(this).attr('data-snid'), {expires: 365, path: '/'});
+            });
+        }
+    }, 1);
+
+    var lastRandom = location.pathname.split('/watch/');
+    if (lastRandom[0] == '' && lastRandom[1].length) {
+        $.cookie('last_watch', lastRandom[1].slice(0, -1), {expires: 365, path: '/'});
+        $.cookie('count_watch', $.cookie('count_watch') ? +$.cookie('count_watch') + 1 : 1, {expires: 365, path: '/'});
+    }
+
+    if($.cookie('last_watch') == $('a[href^="/watch"]')[0].href.split('/watch/')[1]) {
+        $.post('/api?method=video.random', {not: $.cookie('last_watch')}, function (data) {
+            $('a[href^="/watch"]').attr('href', '/watch/' + data.response + '/');
+        });
+    }
+
+    function undoSocial() {
+        $.cookie('undo_watch', true, {expires: 1});
+        $.magnificPopup.close();
+    }
+
+    if (lastRandom[0] == '' && $.cookie('count_watch') % 4 == 0 && !$.cookie('undo_watch')) {
+        /*setTimeout(function () {
+            $.magnificPopup.open({
+                removalDelay: 500,
+                callbacks: {
+                    beforeOpen: function() {
+                        this.st.mainClass = 'mfp-newspaper';
+                    }
+                },
+                items: {
+                    src: '#social-popup', // can be a HTML string, jQuery object, or CSS selector
+                    type: 'inline'
+                }
+            });
+        }, 1000);*/
+    }
+
+    function send(element) {
+        var form = $(element), val = form.serializeArray();
+        if (!val[0].value.length) {
+            form.find('input[name="name"]').focus();
+            return false;
+        }
+        if (!val[1].value.length) {
+            form.find('input[name="player"]').focus();
+            return false;
+        }
+        $.post('/api?method=video.add', form.serialize(), function (data) {
+            if (data.response) {
+                swal({
+                    title: 'Спасибо!',
+                    text: 'Видео добавлено в очередь на проверку',
+                    type: 'success'
+                });
+                form.find('input').val('');
+            } else {
+                var errors = {
+                    INCORRECT_LINK_VIDEO: 'Неверная ссылка на видео',
+                    VIDEO_EXISTS: 'Такое видео уже есть в нашей коллекции'
+                };
+                swal({
+                    title: 'Препятствие!',
+                    text: errors[data.error.msg],
+                    type: 'error'
+                });
+            }
+        });
+        return false;
+    }
+</script>

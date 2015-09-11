@@ -1,0 +1,226 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    background: #F0F2F5;
+}
+
+.wrap {
+    width: 960px;
+}
+
+.page_block {
+    width: 725px;
+    background: #FFF;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    -moz-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    color: #2b2f33;
+}
+
+#right_block {
+    margin-top: 25px;
+}
+
+
+#dev_left_nav {
+    position: relative;
+    width: 215px;
+    padding: 14px 0px;
+    word-wrap: break-word;
+    background: #FFF;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    -moz-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
+    margin-top: 25px;
+}
+
+
+#dev_left_nav.dev_nav .nav {
+    max-width: 183px;
+}
+#dev_left_nav a:hover {
+    text-decoration: none;
+}
+#dev_left_nav_mark {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 30px;
+    background: #6286ae;
+    display: none;
+}
+.dev_nav.anim #dev_left_nav_mark {
+    display: block;
+}
+.dev_nav a.nav {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 32px;
+    padding: 0px 23px;
+}
+.dev_nav .nav:hover {
+    text-decoration: none;
+    background-color: #f5f7fa;
+}
+.dev_nav a.nav.nav_selected,
+.dev_nav a.nav.nav_selected:hover {
+    color: #2b2f33;
+    background-color: #f5f7fa;
+    font-weight: bold;
+    font-size: 1em;
+    padding-left: 21px;
+    border-left: 2px solid #6286ae;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.dev_nav.anim a.nav.nav_selected,
+.dev_nav.anim a.nav.nav_selected:hover {
+    border: 0px;
+    padding-left: 23px;
+}
+.dev_nav a.nav.submenu {
+    line-height: 29px;
+    padding-left: 36px;
+    color: #757c85;
+    font-size: 1em;
+}
+.dev_nav a.nav.submenu.nav_selected,
+.dev_nav a.nav.submenu.nav_selected:hover {
+    color: #2b2f33;
+    font-size: 1;
+    padding-left: 34px;
+}
+.dev_nav.anim a.nav.submenu.nav_selected,
+.dev_nav.anim a.nav.submenu.nav_selected:hover {
+    padding-left: 36px;
+}
+.dev_nav .nav_separator {
+    border-bottom: 1px solid #D3DBE1;
+    height: 1px;
+    overflow: hidden;
+    margin: 7px 0px 8px 0;
+}
+
+.ctrl_videos_block {
+    width: 725px;
+}
+.app_edit_block_header {
+    background-color: #f7f8fa;
+    border-bottom: 1px solid #eef0f3;
+    padding: 0 30px;
+    position: relative;
+}
+.app_edit_block_header .label {
+    font: 400 16px Roboto;
+    color: #2b2f33;
+}
+.ctrl_count {
+    padding: 0 25px;
+    color: #9aa6b1;
+}
+
+
+.ctrl_video {
+    margin: 0 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eef0f3;
+}
+.ctrl_video .ctrl_video_name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ctrl_video_img {
+    padding-right: 30px;
+}
+.ctrl_video_name {
+    line-height: 26px;
+    font-size: 17px;
+}
+.ctrl_video_name1 {
+    line-height: 26px;
+    font-size: 17px;
+}
+.control-status {
+    padding: 5px 0 0 50px;
+}
+.telegram-me {
+    padding: 5px 0 0 30px;
+}
+
+.video-popup {
+    position: relative;
+    background: #FFF;
+    padding: 0 0 30px;
+    width: auto;
+    max-width: 690px;
+    margin: 30px auto;
+    font-size: 15px;
+    font-weight: 300;
+}
+.video-popup .name-video {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 300;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+.video-popup .text {
+    padding: 15px;
+    font-size: 17px;
+    font-weight: 300;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+.button-form {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.radio-video {
+    font: 400 13px Roboto;
+}
+.radio-video label {
+    padding: 5px 15px;
+}
+.radio-video label:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
