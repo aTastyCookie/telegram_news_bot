@@ -4,7 +4,7 @@ var async = require('async');
 
 
 var api = new telegram({
-    token: '134860581:AAHGJ9wtUnpjsiJsXl5UlnaQfaZkD5JtMvA',
+    token: 'token',
     updates: {
         enabled: true,
         get_interval: 200
