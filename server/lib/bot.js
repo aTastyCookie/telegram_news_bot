@@ -4,10 +4,11 @@ var async = require('async');
 
 
 var api = new telegram({
-    token: 'token',
+    token: '134860581:AAHGJ9wtUnpjsiJsXl5UlnaQfaZkD5JtMvA',
     updates: {
         enabled: true,
-        get_interval: 200
+        get_interval: 1,
+        pooling_timeout: 30
     }
 });
 
@@ -84,6 +85,18 @@ api.on('message', function (obj) {
                     });
                 });
             }
+
+            if (!user.status) {
+                api.sendMessage({
+                    chat_id: userID,
+                    text: 'Ты пока неактивен. Для аппрува напиши @rananyev и ты смодешь ситать потом сводки/новости.',
+                    reply_markup: JSON.stringify({
+                        hide_keyboard: true
+                    })
+                });
+                return false;
+            }
+
 //            // stop subscribe
 //            if (t == '/stop') {
 //                db.users.findOneAndUpdate({uid: userID}, {subscribe: false}, function (err, user) {
